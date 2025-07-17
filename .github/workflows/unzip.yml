@@ -1,0 +1,19 @@
+name: Unzip 1.zip
+
+on:
+  push:
+    paths:
+      - '1.zip'
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Unzip 1.zip
+        run: |
+          mkdir extracted
+          unzip 1.zip -d extracted
+          ls -alh extracted
